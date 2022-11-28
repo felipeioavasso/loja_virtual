@@ -4,9 +4,8 @@ import 'package:loja_virtual/models/products.dart';
 import 'package:provider/provider.dart';
 
 class SizeWidget extends StatelessWidget {
-  //const SizeWidget({Key? key}) : super(key: key);
 
-  const SizeWidget({this.size});
+  const SizeWidget({Key? key, this.size}) : super(key: key);
   final ItemSize? size;
 
   @override

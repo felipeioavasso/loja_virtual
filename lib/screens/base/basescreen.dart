@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'package:loja_virtual/commom/customdrawer/customdrawer.dart';
+
+import '../../models/usermanager.dart';
 import 'package:loja_virtual/models/pagemanager.dart';
+
 import 'package:loja_virtual/screens/admin_users/admin_users_screen.dart';
 import 'package:loja_virtual/screens/home/home_screen.dart';
 import 'package:loja_virtual/screens/products/products_screen.dart';
+
 import 'package:provider/provider.dart';
 
-import '../../models/usermanager.dart';
+
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);

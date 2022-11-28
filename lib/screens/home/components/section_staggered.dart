@@ -6,7 +6,7 @@ import 'item_tile.dart';
 
 class SectionStaggered extends StatelessWidget { 
 
-  const SectionStaggered(this.section);
+   const SectionStaggered(this.section, {Key? key}) : super(key: key);
   final Section? section;
 
   @override

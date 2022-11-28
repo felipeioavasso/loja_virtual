@@ -10,7 +10,7 @@ import '../products/components/size_widget.dart';
 class ProducScreen extends StatelessWidget {
   //const ProducScreen({Key? key}) : super(key: key);
 
-  const ProducScreen(this.product);
+  const ProducScreen(this.product, {Key? key}) : super(key: key);
   final Product product;
 
   @override
@@ -43,7 +43,7 @@ class ProducScreen extends StatelessWidget {
                   return Container();
                 }
               }
-            )
+            ),
           ],
         ),
     
@@ -90,9 +90,9 @@ class ProducScreen extends StatelessWidget {
                       ),
                     ), 
                   ),
-    
+                  
                   Text(
-                    'R\$ 19,99',
+                    'R\$ ${product.basePrice!.toStringAsFixed(2)}',
                     style: TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,

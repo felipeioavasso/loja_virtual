@@ -4,8 +4,7 @@ import 'package:loja_virtual/models/cart_product.dart';
 import 'package:provider/provider.dart';
 
 class CartTile extends StatelessWidget {
-  //const CartTile({Key? key}) : super(key: key);
-  const CartTile(this.cartProduct);
+  const CartTile(this.cartProduct, {Key? key}) : super(key: key);
 
   final CartProduct cartProduct;
 

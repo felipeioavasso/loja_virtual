@@ -18,19 +18,6 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
 
-          /* Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 211, 118, 130),
-                      Color.fromARGB(255, 253, 181, 168),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter
-                  ),
-                ),
-              ), */
-
           CustomScrollView(
             slivers: <Widget>[
 
@@ -71,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                   delegate: SliverChildListDelegate(children),
                   );
                 }
-              ),
+              ),              
 
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SearchDialog extends StatelessWidget {
   //const SearchDialog(String search, {Key? key, required this.initialText}) : super(key: key);
 
-  const SearchDialog(this.initialText);
+  const SearchDialog(this.initialText, {Key? key}) : super(key: key);
   final String initialText;
 
   @override

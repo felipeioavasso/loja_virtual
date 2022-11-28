@@ -67,7 +67,7 @@ void main() async {
       debugShowCheckedModeBanner: false,
       //home: const BaseScreen(),
     
-      //------------- TEMAS - INICIO
+      // TEMAS - INICIO
       theme: ThemeData(
     
         visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/commom/customdrawer/customdrawer.dart';
+import 'package:loja_virtual/models/products.dart';
 import 'package:loja_virtual/screens/products/components/product_list_tile.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/product_manager.dart';
+import '../../models/usermanager.dart';
 import 'components/search_dialog.dart';
 
 class ProductsScreen extends StatelessWidget {
@@ -34,10 +36,10 @@ class ProductsScreen extends StatelessWidget {
                         productManager.search = search;
                       }
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: constraints.biggest.width,
                       child: Text(productManager.search,
-                      textAlign: TextAlign.center,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   );
@@ -77,18 +79,35 @@ class ProductsScreen extends StatelessWidget {
               }
             }
           ),
+          Consumer<UserManager>(
+              builder: (_, userManager, __){
+                if (userManager.adminEnabled){
+                  return IconButton(
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(
+                        '/edit_product',
+                        arguments: Product(), 
+                      );
+                    }, 
+                    icon: const Icon(Icons.add),
+                  );
+                } else {
+                  return Container();
+                }
+              }
+            ),
           
         ],
       ),
       body: Consumer<ProductManager>(
-        builder: (_, ProductManager, __){
-          final filteredProducts = ProductManager.filteredProducts;
+        builder: (_, productManager, __){
+          //final filteredProducts = productManager.filteredProducts;
           return ListView.builder(
             padding: const EdgeInsets.all(4),
-            itemCount: ProductManager.filteredProducts.length,
+            itemCount: productManager.filteredProducts.length,
             itemBuilder: (_, index) {
               return ProductListTile(
-                product: ProductManager.filteredProducts[index],
+                product: productManager.filteredProducts[index],
               );
             }, 
           );

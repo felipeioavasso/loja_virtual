@@ -27,7 +27,7 @@ class SignUpScreen extends StatelessWidget {
           child: Form(
             key: formKey,
             child: Consumer<UserManager>(
-              builder: (_, UserManager, __){
+              builder: (_, userManager, __){
                 return ListView(
                   padding: const EdgeInsets.all(16),
                   shrinkWrap: true,
@@ -35,7 +35,7 @@ class SignUpScreen extends StatelessWidget {
               
                     TextFormField(
                       decoration: const InputDecoration(hintText: 'Nome completo'),
-                      enabled: !UserManager.loading,
+                      enabled: !userManager.loading,
                       validator: (name){
                         if(name!.isEmpty){
                           return 'Campo Obrigatório';
@@ -54,7 +54,7 @@ class SignUpScreen extends StatelessWidget {
                     TextFormField(
                       decoration: const InputDecoration(hintText: 'E-mail'),
                       keyboardType: TextInputType.emailAddress,
-                      enabled: !UserManager.loading,
+                      enabled: !userManager.loading,
                       validator: (email){
                         if(email!.isEmpty){
                           return 'Campo obrigatório';
@@ -72,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                     TextFormField(
                       decoration: const InputDecoration(hintText: 'Senha'),
                       obscureText: true,
-                      enabled: !UserManager.loading,
+                      enabled: !userManager.loading,
                       validator: (pass){
                         if (pass!.isEmpty){
                           return 'Campo Obrigatório';
@@ -90,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
                     TextFormField(
                       decoration: const InputDecoration(hintText: 'Repita a senha'),
                       obscureText: true,
-                      enabled: !UserManager.loading,
+                      enabled: !userManager.loading,
                       validator: (pass){
                         if (pass!.isEmpty){
                           return 'Campo Obrigatório';
@@ -108,7 +108,7 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(
                       height: 44,
                       child: ElevatedButton(
-                        onPressed: UserManager.loading ? null : (){
+                        onPressed: userManager.loading ? null : (){
 
                           if (formKey.currentState!.validate()){
                             formKey.currentState!.save();
@@ -118,7 +118,7 @@ class SignUpScreen extends StatelessWidget {
                               return;
                             }
 
-                            UserManager.signUp(
+                            userManager.signUp(
                               user: usuario,
                               onSuccess: (){
                                 debugPrint('Cadastro realizado com sucesso!');
@@ -132,7 +132,7 @@ class SignUpScreen extends StatelessWidget {
 
                           debugPrint('Conta criada com sucesso');
                         },
-                        child: UserManager.loading ?
+                        child: userManager.loading ?
                           const CircularProgressIndicator()
                           : const Text(
                           'Cadastrar',

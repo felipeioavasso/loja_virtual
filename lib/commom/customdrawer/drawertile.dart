@@ -3,13 +3,12 @@ import 'package:loja_virtual/models/pagemanager.dart';
 import 'package:provider/provider.dart';
 
 class DrawerTile extends StatelessWidget {
-  //const DrawerTile({Key? key}) : super(key: key);
 
-  late final IconData? iconData;
-  late final String title;
-  late final int? page;
+  final IconData? iconData;
+  final String title;
+  final int? page;
 
-  DrawerTile({Key? key, required this.iconData, required this.title, this.page}) : super(key: key);
+  const DrawerTile({Key? key, required this.iconData, required this.title, this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

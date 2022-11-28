@@ -20,7 +20,7 @@ class HomeManager extends ChangeNotifier {
         sections.add(Section.fromDocument(document));
       }
       notifyListeners();
-      print(sections);
+      //print(sections);
     });
   }
 

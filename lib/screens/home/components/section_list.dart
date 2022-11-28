@@ -4,9 +4,8 @@ import 'package:loja_virtual/screens/home/components/item_tile.dart';
 import 'package:loja_virtual/screens/home/components/section_header.dart';
 
 class SectionList extends StatelessWidget {
-  //const SectionList({Key? key, this.section}) : super(key: key);
 
-  const SectionList(this.section);
+  const SectionList(this.section, {Key? key}) : super(key: key);
   final Section? section;
 
   @override

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:loja_virtual/models/snackbar_manager/snackbar_manager.dart';
 import 'package:loja_virtual/models/user.dart';
 import 'package:loja_virtual/models/usermanager.dart';
+
 import 'package:provider/provider.dart';
 import '../../helper/validator.dart';
 
@@ -48,7 +50,7 @@ class LoginScreen extends StatelessWidget {
           child: Form(
             key: formKey,
             child: Consumer<UserManager>(
-              builder: (_, UserManager, __){
+              builder: (_, userManager, __){
                 return ListView(
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(16),
@@ -57,7 +59,7 @@ class LoginScreen extends StatelessWidget {
             
                   TextFormField(
                     controller: emailController,
-                    enabled: !UserManager.loading,
+                    enabled: !userManager.loading,
                     decoration: const InputDecoration(hintText: 'Email'),
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
@@ -76,7 +78,7 @@ class LoginScreen extends StatelessWidget {
             
                   TextFormField(
                     controller: passController,
-                    enabled: !UserManager.loading,
+                    enabled: !userManager.loading,
                     decoration: const InputDecoration(hintText: 'Senha'),
                     keyboardType: TextInputType.text,
                     obscureText: true,
@@ -114,9 +116,9 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: 44,
                     child: ElevatedButton(
-                      onPressed: UserManager.loading ? null : (){
+                      onPressed: userManager.loading ? null : (){
                         if(formKey.currentState!.validate()){
-                          UserManager.signIn(
+                          userManager.signIn(
 
                             user: Usuarios(
                               id: '',
@@ -139,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                           );
                         }
                       },
-                      child: UserManager.loading ?
+                      child: userManager.loading ?
                         const CircularProgressIndicator(
                           //valueColor: AlwaysStoppedAnimation(Colors.blue),
                         ) :

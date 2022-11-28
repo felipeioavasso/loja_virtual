@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:loja_virtual/helper/firebase_errors.dart';
 import 'package:loja_virtual/models/user.dart';
@@ -67,7 +66,7 @@ class UserManager extends ChangeNotifier {
   // Verificar se o usuário já esta logado
   Future <void> _loadCurrenteUser({dynamic firebaseUser}) async {
 
-    final User? currentUser = firebaseUser ?? await auth.currentUser;
+    final User? currentUser = firebaseUser ?? auth.currentUser;
         
     if (currentUser != null){
 
@@ -81,7 +80,7 @@ class UserManager extends ChangeNotifier {
       } 
 
 
-      print(usuarioAtual!.admin);
+      //print(usuarioAtual!.admin);
 
 
       notifyListeners();
